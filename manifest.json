@@ -1,0 +1,20 @@
+{
+    "name": "Price Compare",
+    "version": "1.0",
+    "manifest_version": 2,
+
+    "description": "Compares prices between multiple online stores",
+    "icons": {
+        "128": "images/icon.png"
+    },
+
+    "browser_action": {
+        "default_title": "Compare Prices",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": [
+        "http://*/*", "https://*/*"
+    ]
+
+}
