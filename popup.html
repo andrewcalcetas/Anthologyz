@@ -1,38 +1,70 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> Compare Prices</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="popup.js"></script>
-    </head>
-    <body>
-        <div class="Header"> 
-            Compare Prices Now 
-        </div>
-        <br> 
-        <div class="Store1">
-            <a href="https://www.walmart.com/" 
-            target="popup" 
-            onclick="window.open('https://www.walmart.com/','popup','width=600,height=600'); return false;">
-            <button>Wallmart</button>
-            </a>
-        </div>
-        <br>
-        <div class="Store2">
-            <a href="https://www.amazon.com/?tag=amazusnavi-20&hvadid=381823327672&hvpos=&hvnetw=g&hvrand=6016081922924029277&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032516&hvtargid=kwd-10573980&ref=pd_sl_7j18redljs_e&hydadcr=28883_11845445&gclid=CjwKCAiA65iBBhB-EiwAW253W25CJPy3v2OPW1B7cQuOJQwNmV5Qu0VHG0CooMGLQq6QV6PytJXZhhoCgeYQAvD_BwE" 
-            target="popup" 
-            onclick="window.open('https://www.amazon.com/?tag=amazusnavi-20&hvadid=381823327672&hvpos=&hvnetw=g&hvrand=6016081922924029277&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032516&hvtargid=kwd-10573980&ref=pd_sl_7j18redljs_e&hydadcr=28883_11845445&gclid=CjwKCAiA65iBBhB-EiwAW253W25CJPy3v2OPW1B7cQuOJQwNmV5Qu0VHG0CooMGLQq6QV6PytJXZhhoCgeYQAvD_BwE','popup','width=600,height=600'); return false;">
-            <button>Amazon</button>
-            </a>
-        </div>
-        <br>
-        <div class="Store3">
-            <a href="https://www.target.com/" 
-            target="popup" 
-            onclick="window.open('https://www.target.com/','popup','width=600,height=600'); return false;">
-            <button>Target</button>
-            </a>
-        </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    </body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Compare Prices</title>
+  </head>
+  <body>
+    
+  <div class = "p-3"></div> 
+
+    <p class="text-nowrap text-center font-weight-bold px-5">Compare Prices</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <button class="btn btn-default">
+            <a href="https://www.amazon.com/" target="_blank"> <!-- product link - connect with javascript -->
+              <img src="/images/amazon_icon.png" width="20" /> Amazon
+            </a>
+          </button>
+          <button type="button" class="text-nowrap">$23.79</button> <!-- price - connect with javascript-->
+        </div>
+      </div>
+
+      <div class ="p-2"></div>
+      <div class="row">
+        <div class="col text-center">
+          <button class="btn btn-default">
+            <a href="https://www.walmart.com/" target="_blank"> <!-- product link - connect with javascript -->
+              <img src="/images/walmart-square.jpg" width="20" /> Walmart
+            </a>
+          </button>
+          <button type="button" class="text-nowrap">$86.99</button> <!-- price - connect with javascript-->
+        </div>
+      </div>
+
+
+      <div class ="p-2"></div>
+      <div class="row">
+        <div class="col text-center">
+          <button class="btn btn-default">
+            <a href="https://www.target.com/" target="_blank"> <!-- product link - connect with javascript -->
+              <img src="/images/target_icon.png" width="20" /> Target 
+            </a>
+          </button>
+          <button type="button" class="text-nowrap">N/A</button> <!-- price - connect with javascript-->
+        </div>
+      </div>
+
+      <div class = "p-3"></div>
+
+
+  </div>
+  
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
