@@ -1,70 +1,254 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <title>Compare Prices</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Modal Structure */
+
+      html,
+      body {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+        margin: 0;
+        min-height: 180px;
+        padding: 0;
+        width: 384px;
+      }
+
+      h1 {
+        font-family: "Menlo", monospace;
+        font-size: 22px;
+        font-weight: 400;
+        margin: 0;
+        color: #2f5876;
+      }
+
+      a:link,
+      a:visited {
+        color: #000000;
+        outline: 0;
+        text-decoration: none;
+      }
+
+
+
+      img {
+        width: 30px;
+      }
+
+      .modal-header {
+        align-items: center;
+        border-bottom: 0.5px solid #dadada;
+      }
+ 
+      .modal-content {               /* default modal content */
+        padding: 0 22px;
+      }
+
+      .modal-content-2 {               /* editted modal content */
+        padding: 0 0px;
+        text-align: center;
+        
+      }
+
+      .modal-icons {
+        border-top: 0.5px solid #dadada;
+        height: 90px;
+        width: 100%;
+      }
+
+      .logo {
+        padding: 16px;
+      }
+
+      .logo-icon {
+        vertical-align: text-bottom;
+        margin-right: 12px;
+      }
+
+      .version {
+        color: #444;
+        font-size: 18px;
+      }
+
+      .flex-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 22px;
+      }
+
+      .flex {                                 /* flex class */
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
+        width: 120px;
+      }
+
+      .flex:hover {
+        opacity: 0.4;
+      }
+
+      .flex .fa {
+        font-size: 40px;
+        color: #2f5876;
+      }
+    </style>
+    <script src="popup.js"></script>
   </head>
+
   <body>
-    
-  <div class = "p-3"></div> 
+    <div class="modal-header">
+      <h1 class="logo">
+        <img class="logo-icon" src="images/icon.png" />Compare Prices
+        <span class="version">(1.0.0)</span>
+      </h1>
+    </div>
+    <div class="modal-content">
+      <p>Product: N/A</p>
+    </div>
 
-    <p class="text-nowrap text-center font-weight-bold px-5">Compare Prices</p>
-
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <button class="btn btn-default">
-            <a href="https://www.amazon.com/" target="_blank"> <!-- product link - connect with javascript -->
-              <img src="/images/amazon_icon.png" width="20" /> Amazon
-            </a>
-          </button>
-          <button type="button" class="text-nowrap">$23.79</button> <!-- price - connect with javascript-->
+    <div class="modal-icons"> <!-- first row-->
+      <div class="flex-container">
+        <div class="flex">
+          <a href="https://www.amazon.com" target="_blank"> <!-- Amazon Link-->
+            <i class="fa fa-amazon" style="color:rgba(0, 0, 0, 0.767) "></i>
+            <div class="modal-content-2">
+              <p>Amazon</p>
+            </div>
+          </a>
         </div>
-      </div>
-
-      <div class ="p-2"></div>
-      <div class="row">
-        <div class="col text-center">
-          <button class="btn btn-default">
-            <a href="https://www.walmart.com/" target="_blank"> <!-- product link - connect with javascript -->
-              <img src="/images/walmart-square.jpg" width="20" /> Walmart
-            </a>
-          </button>
-          <button type="button" class="text-nowrap">$86.99</button> <!-- price - connect with javascript-->
+        <div class="flex">
+          <a href="https://www.amazon.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
         </div>
-      </div>
-
-
-      <div class ="p-2"></div>
-      <div class="row">
-        <div class="col text-center">
-          <button class="btn btn-default">
-            <a href="https://www.target.com/" target="_blank"> <!-- product link - connect with javascript -->
-              <img src="/images/target_icon.png" width="20" /> Target 
-            </a>
-          </button>
-          <button type="button" class="text-nowrap">N/A</button> <!-- price - connect with javascript-->
+        <div class="flex">
+          <a href="https://www.amazon.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
         </div>
-      </div>
+        <div class="flex">
+          <a href="https://www.amazon.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.amazon.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+    </div>
 
-      <div class = "p-3"></div>
 
+    <div class="modal-icons"> <!-- second row-->
+      <div class="flex-container">
+        <div class="flex">
+          <a href="https://www.target.com" target="_blank"> <!-- Target Link-->
+            <i class="fa fa-dot-circle-o" style="color:rgb(255, 64, 0) "></i>
+            <div class="modal-content-2">
+              <p>Target</p>
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.target.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.target.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.target.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.target.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+    </div>
 
-  </div>
-  
+    <div class="modal-icons"> <!-- third row-->
+      <div class="flex-container">
+        <div class="flex">
+          <a href="https://www.walmart.com" target="_blank"> <!-- Walmart Link-->
+            <i class="fa fa-sun-o" style="color:rgb(0, 144, 206) "></i>
+            <div class="modal-content-2">
+              <p>Walmart</p>
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.walmart.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.walmart.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.walmart.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+        <div class="flex">
+          <a href="https://www.walmart.com/productlink" target="_blank" title = "Product Title"> <!-- Product Link+Title-->
+            <img class="logo-icon" src="https://www.w3schools.com/howto/img_snow.jpg" style="width:100%;max-width:150px"/>
+            <div class="modal-content-2">
+              <p>$2500.69</p> <!--Product Price-->
+            </div>
+          </a>
+        </div>
+    </div>
 
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
