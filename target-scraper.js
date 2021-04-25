@@ -5,7 +5,7 @@ function sleep(ms){
     return new Promise(resolve => setTimeout(resolve,ms))
 }
 
-//Function that scrapes product info for 3 products off target.com using a searchterm
+//Function that scrapes product info for 3 products off target.com using a searchtermm
 async function scrapeTargetWithSearch(searchTerm){
     
     try{
