@@ -7,8 +7,9 @@
         "scripts": ["amazon-scraper.js","target-scraper.js"],
         "persistent": true
       },
-    "description"     : "Compare Prices",
+    "description"     : "Compare prices between Amazon and Target! Add --remote-debugging-port=9222 to the end of chrome.exe target.",
     "icons": {
+      "128": "icon.png"
     },
     
     "browser_action": {
