@@ -1,20 +1,42 @@
-const puppetteer = require('puppeteer')
+let browserWSEndpoint = '';
+const { product } = require("puppeteer");
+const puppeteer = require("puppeteer");
+
+async function initiatePuppeteer() {
+  await fetch("http://localhost:9222/json/version")
+    .then(response => response.json())
+    .then(function(data) {
+        browserWSEndpoint = data.webSocketDebuggerUrl;
+      })
+    .catch(error => console.log(error));
+}
+
+initiatePuppeteer();
 
 //Sleep function
 function sleep(ms){
     return new Promise(resolve => setTimeout(resolve,ms))
 }
 
-//Function that scrapes product info for 3 products off target.com using a searchtermm
-async function scrapeTargetWithSearch(searchTerm){
-    
-    try{
+// Assign button to puppeteer function
 
+document
+  .getElementById("puppeteer-button")
+  .addEventListener("click", doPuppeteerThings);
+
+async function doPuppeteerThings() {
+
+  // Your puppeteer code goes here
+  async function scrapeTargetWithSearch(searchTerm){
+    try{
         //Open browser and new page, go to searched target page and wait for DOM to fully load
-        const browser = await puppetteer.launch({headless : true})
-        const page = await browser.newPage()
+        const browser = await puppeteer.connect({
+            browserWSEndpoint: browserWSEndpoint
+          });
+          const page = await browser.newPage();
+
         await page.goto("https://www.target.com/s?searchTerm=" + searchTerm)
-        await sleep(3000)
+        await sleep(7000)
         
         //Pulls first 4 products off page, puts into list
         let rawProducts = [
@@ -29,7 +51,7 @@ async function scrapeTargetWithSearch(searchTerm){
         ]
 
         //Close browser
-        await browser.close()
+        //await browser.close()
         
         //Dictionary to hold all the products, this is what will be returned
         var products = {
@@ -97,6 +119,22 @@ async function scrapeTargetWithSearch(searchTerm){
 
         }
         console.log(products)
+
+        //target
+        document.getElementById("r2Link1").setAttribute('href', products.product1.href);
+        document.getElementById("r2Link1").setAttribute('title', products.product1.title);
+        document.getElementById("r2Img1").setAttribute('src', products.product1.image);
+        document.getElementById("r2Price1").innerHTML = products.product1.price;
+
+        document.getElementById("r2Link2").setAttribute('href', products.product2.href);
+        document.getElementById("r2Link2").setAttribute('title', products.product2.title);
+        document.getElementById("r2Img2").setAttribute('src', products.product2.image);
+        document.getElementById("r2Price2").innerHTML = products.product2.price;
+
+        document.getElementById("r2Link3").setAttribute('href', products.product3.href);
+        document.getElementById("r2Link3").setAttribute('title', products.product3.title);
+        document.getElementById("r2Img3").setAttribute('src', products.product3.image);
+        document.getElementById("r2Price3").innerHTML = products.product3.price;
     }
      
     catch (err){
@@ -109,7 +147,7 @@ async function scrapeTargetWithSearch(searchTerm){
 async function scrapeTargetOnPage(url){
     try{
 
-        const browser = await puppetteer.launch({headless : true})
+        const browser = await puppeteer.launch({headless : true})
         const page = await browser.newPage()
         await page.goto(url)
         await sleep(3000)
@@ -130,5 +168,9 @@ async function scrapeTargetOnPage(url){
     }
 }
 
-scrapeTargetWithSearch('HP 24ec 24" IPS Full HD LED Computer Monitor')
+let productTitle = document.getElementById("productTitle").innerHTML;
+//scrapeTargetWithSearch('HP 24ec 24" IPS Full HD LED Computer Monitor')
+scrapeTargetWithSearch(productTitle)
+}
+
 

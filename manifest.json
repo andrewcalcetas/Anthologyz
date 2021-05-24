@@ -2,19 +2,17 @@
     "name": "Price Compare",
     "version": "1.0",
     "manifest_version": 2,
-
-    "description": "Compares prices between multiple online stores",
+    "permissions": [ "tabs" , "identity","http://localhost:9222/*"],
+      "background": {
+        "scripts": ["amazon-scraper.js","target-scraper.js"],
+        "persistent": true
+      },
+    "description"     : "Compare Prices",
     "icons": {
-        "128": "images/icon.png"
     },
-
+    
     "browser_action": {
-        "default_title": "Compare Prices",
-        "default_popup": "popup.html"
+        "default_popup" : "popup.html"
     },
-
-    "permissions": [
-        "http://*/*", "https://*/*"
-    ]
-
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://apis.google.com/; object-src 'self'"
 }
