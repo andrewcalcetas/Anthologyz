@@ -28,45 +28,50 @@ async function doPuppeteerThings() {
 
   // Your puppeteer code goes here
 //This async function will allow me to use the await keyword (this is very ussefull because in this code it will have to wait for things very often before moving on)
-async function scrapeProduct(url) {
-    const browser = await puppeteer.connect({
-        browserWSEndpoint: browserWSEndpoint
-      });
-      const page = await browser.newPage();
-    await page.goto(url);
+async function scrapeProduct() {
 
-    //Returns an arry when item found using Xpath then pulls out the first item our of the array into "el".
-    const [el] = await page.$x('//*[@id="landingImage"]');
+  let productTitle = document.getElementById("productTitle").innerHTML;
+  const browser = await puppeteer.connect({
+      browserWSEndpoint: browserWSEndpoint
+  });
+  const page = await browser.newPage();
+  await page.goto("https://www.amazon.com/s?k=" + productTitle);
+  let price1 = await page.evaluate(() => 
+      document.querySelector('span.a-price').innerText)
 
-    //pulls the source attribute attribute out of the element
-    const src = await el.getProperty('src');
+  let delIndex = price1.search("\\.")
 
-    //this pulls out the string since this wasn't a string
-    const imgURL = await src.jsonValue();
+  price1 = price1.substring(0, delIndex + 3)
+    
+  let image1 = ''
 
-    //same concept just changed variables
-    const [el2] = await page.$x('//*[@id="productTitle"]');
-    const txt = await el2.getProperty('textContent');
-    const title = await txt.jsonValue();
+  let rawimage1 = await page.evaluate(() => 
+    document.querySelector('img.s-image').outerHTML)
+    
+  let i = (rawimage1.search('src=') + 5)
+    
+  while (rawimage1[i] !== '"'){
+        image1 += rawimage1[i]
+        i= i + 1
+  }
+  let href = 'https://www.amazon.com'
+  let rawhref = await page.evaluate(() => document.querySelector('a.a-link-normal.a-text-normal').outerHTML)
 
-    //same concept just changed variables
-    const [el3] = await page.$x('//*[@id="price_inside_buybox"]');
-    const txt2 = await el3.getProperty('textContent');
-    const price = await txt2.jsonValue();
+  let j = rawhref.search('href=') + 6
+  while (rawhref[j] !== '"'){
+        href += rawhref[j]
+        j = j + 1
+  }
 
-    console.log({imgURL, title, price});
-
+    
     //closes the browser
     //browser.close();
 
-    document.getElementById("r1Link1").setAttribute('href', url);
-    document.getElementById("r1Link1").setAttribute('title', title);
-    document.getElementById("r1Img1").setAttribute('src', imgURL);
-    document.getElementById("r1Price1").innerHTML = price;
+    document.getElementById("r1Link1").setAttribute('href', href);
+    document.getElementById("r1Img1").setAttribute('src', image1);
+    document.getElementById("r1Price1").innerHTML = price1;
 }
 
-let productTitle = document.getElementById("productTitle").innerHTML;
-let product = "https://www.amazon.com/s?k=" + productTitle;
-scrapeProduct('https://www.amazon.com/Sony-X80J-Inch-Compatibility-KD65X80J/dp/B08QXFGN9N/ref=sr_1_1?dchild=1&keywords=tcl+65+34+roku+4k+uhd+hdr+smart+tv+65s435&qid=1621888151&sr=8-1')
+scrapeProduct()
 
 }
